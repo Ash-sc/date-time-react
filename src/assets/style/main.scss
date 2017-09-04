@@ -16,6 +16,17 @@
   background-clip: content-box;
 }
 
+@mixin dateTimeSection() {
+  user-select: none;
+  display: none;
+  position: absolute;
+  padding: 0 10px;
+  border-radius: 4px;
+  background-color: #2b313d;
+  color: #b4c0cb;
+  z-index: 1024;
+}
+
 .date-range-body {
   display: inline-block;
   position: relative;
@@ -60,24 +71,11 @@
     cursor: pointer;
   }
 
-
   /* 日历选择部分 */
   .date-section {
-    user-select: none;
-    display: none;
-    position: absolute;
+    @include dateTimeSection();
     top: 50px;
     left: 0;
-    padding: 0 10px;
-    border-radius: 4px;
-    background-color: #2b313d;
-    color: #b4c0cb;
-    z-index: 1024;
-
-    // 显示/隐藏
-    &.date-section-show {
-      display: inherit;
-    }
 
     /* 日期展示 */
     .date-select-section {
@@ -225,6 +223,57 @@
       @include dateHover();
     }
 
+  }
+
+  // 时间选择部分
+  .time-section {
+    @include dateTimeSection();
+    left: 287px;
+    top: 50px;
+    width: 180px;
+    height: 314px;
+  }
+
+  .time-section-bg {
+    height: 314px;
+    line-height: 314px;
+  }
+
+  .hour-section, .minute-section, .column-section {
+    vertical-align: middle;
+    position: relative;
+    display: inline-block;
+    height: 150px;
+    line-height: 150px;
+    text-align: center;
+  }
+
+  .hour-section, .minute-section {
+    width: 75px;
+  }
+
+  .column-section {
+    width: 30px;
+  }
+
+  .add-hour, .reduce-hour, .add-min, .reduce-min {
+    position: absolute;
+    font-size: 20px;
+    left: 28px;
+    cursor: pointer;
+  }
+
+  .add-hour, .add-min {
+    top: 20px;
+  }
+
+  .reduce-hour, .reduce-min {
+    bottom: 20px;
+  }
+
+  // 显示、隐藏日历
+  .date-section-show, .time-section-show {
+    display: inherit;
   }
 
   /* 背景遮罩层 */

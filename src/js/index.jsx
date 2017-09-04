@@ -2,6 +2,7 @@ import React from 'react';
 import moment from 'moment';
 import CommonFn from './commonFn';
 import CalendarSelect from './calendarSelect';
+import TimeSelect from './timeSelect';
 import 'font-awesome/css/font-awesome.css';
 import '../assets/style/main.css';
 
@@ -42,7 +43,7 @@ export default class DateRange extends React.Component {
     });
   }
 
-  // 点击日历日期，选择时间
+  // 点击日历日期，选择日期
   selectDate(val) {
     const { date, needTime } = this.state;
     const yearMonthDayArr = val.split('-');
@@ -55,9 +56,13 @@ export default class DateRange extends React.Component {
     }, this.dateCallback);
   }
 
+  // 点击日历时间，选择时间
+  selectTime(val) {
+    console.log(val, 3333);
+  }
+
   // 回调组件外部方法，传出修改
   dateCallback() {
-    // todo.
     const { changeDate, format } = this.props;
     const { date } = this.state;
     changeDate && changeDate(moment(date).set('millisecond', 0).format(format));
@@ -96,6 +101,16 @@ export default class DateRange extends React.Component {
             showCalendar={showCalendar}
             selectDate={item => this.selectDate(item)}
             calendarChange={(type, unit) => this.calendarChange(type, unit, 'start')}
+          />
+        </div>
+        <div
+          className={`time-section ${showCalendar && 'time-section-show'}`}
+        >
+          <TimeSelect
+            date={date}
+            minDate={minDate}
+            maxDate={maxDate}
+            selectTime={item => this.selectTime(item)}
           />
         </div>
         {showCalendar &&

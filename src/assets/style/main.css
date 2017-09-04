@@ -38,18 +38,16 @@
     user-select: none;
     display: none;
     position: absolute;
-    top: 50px;
-    left: 0;
     padding: 0 10px;
     border-radius: 4px;
     background-color: #2b313d;
     color: #b4c0cb;
     z-index: 1024;
+    top: 50px;
+    left: 0;
     /* 日期展示 */
     /* 年、月选择部分 */
     /* 日期选择部分 */ }
-    .date-range-body .date-section.date-section-show {
-      display: inherit; }
     .date-range-body .date-section .date-select-section {
       width: 265px;
       border-radius: 4px;
@@ -147,6 +145,44 @@
     .date-range-body .date-section .month-item:hover {
       background-color: #b4c0cb;
       color: #000000; }
+  .date-range-body .time-section {
+    user-select: none;
+    display: none;
+    position: absolute;
+    padding: 0 10px;
+    border-radius: 4px;
+    background-color: #2b313d;
+    color: #b4c0cb;
+    z-index: 1024;
+    left: 287px;
+    top: 50px;
+    width: 180px;
+    height: 314px; }
+  .date-range-body .time-section-bg {
+    height: 314px;
+    line-height: 314px; }
+  .date-range-body .hour-section, .date-range-body .minute-section, .date-range-body .column-section {
+    vertical-align: middle;
+    position: relative;
+    display: inline-block;
+    height: 150px;
+    line-height: 150px;
+    text-align: center; }
+  .date-range-body .hour-section, .date-range-body .minute-section {
+    width: 75px; }
+  .date-range-body .column-section {
+    width: 30px; }
+  .date-range-body .add-hour, .date-range-body .reduce-hour, .date-range-body .add-min, .date-range-body .reduce-min {
+    position: absolute;
+    font-size: 20px;
+    left: 28px;
+    cursor: pointer; }
+  .date-range-body .add-hour, .date-range-body .add-min {
+    top: 20px; }
+  .date-range-body .reduce-hour, .date-range-body .reduce-min {
+    bottom: 20px; }
+  .date-range-body .date-section-show, .date-range-body .time-section-show {
+    display: inherit; }
   .date-range-body .bg-for-close {
     position: fixed;
     width: 100%;
