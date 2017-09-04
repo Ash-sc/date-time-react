@@ -1,0 +1,156 @@
+@charset "UTF-8";
+/*************************************date picker stylesheet*******************************************/
+.date-range-body {
+  display: inline-block;
+  position: relative;
+  /* 输入框 */
+  /* 日历选择部分 */
+  /* 背景遮罩层 */ }
+  .date-range-body .input-section {
+    display: inline-block;
+    height: 36px;
+    position: relative;
+    background-color: #2e3545;
+    color: #b4c0cb;
+    border: 1px solid #2a303c;
+    border-radius: 4px; }
+  .date-range-body .time-input {
+    height: calc(100% - 2px);
+    border: none;
+    width: 100%;
+    background: none;
+    outline: none;
+    text-align: left;
+    text-indent: 15px;
+    color: #b4c0cb; }
+  .date-range-body .time-input::placeholder {
+    color: #b4c0cb; }
+  .date-range-body .input-section:before {
+    content: ' ';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    cursor: pointer; }
+  .date-range-body .date-section {
+    user-select: none;
+    display: none;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    padding: 0 10px;
+    border-radius: 4px;
+    background-color: #2b313d;
+    color: #b4c0cb;
+    z-index: 1024;
+    /* 日期展示 */
+    /* 年、月选择部分 */
+    /* 日期选择部分 */ }
+    .date-range-body .date-section.date-section-show {
+      display: inherit; }
+    .date-range-body .date-section .date-select-section {
+      width: 265px;
+      border-radius: 4px;
+      display: inline-block;
+      font-size: 14px; }
+    .date-range-body .date-section .header-section {
+      position: relative;
+      height: 30px;
+      margin: 30px 10px 0;
+      border-radius: 4px;
+      background-color: #373d49; }
+    .date-range-body .date-section .prev-year, .date-range-body .date-section .prev-month, .date-range-body .date-section .next-year, .date-range-body .date-section .next-month {
+      position: absolute;
+      height: 30px;
+      width: 20px;
+      line-height: 30px;
+      text-align: center;
+      cursor: pointer; }
+    .date-range-body .date-section .prev-year {
+      left: 10px; }
+    .date-range-body .date-section .prev-month {
+      left: 30px;
+      font-size: 20px; }
+    .date-range-body .date-section .next-month {
+      right: 30px;
+      font-size: 20px; }
+    .date-range-body .date-section .next-year {
+      right: 10px; }
+    .date-range-body .date-section .year-selector, .date-range-body .date-section .month-selector {
+      width: calc(50% - 10px);
+      height: 30px;
+      line-height: 30px;
+      display: inline-block;
+      text-align: center; }
+    .date-range-body .date-section .current {
+      cursor: pointer; }
+    .date-range-body .date-section .year-selector {
+      text-align: right;
+      padding-right: 10px; }
+    .date-range-body .date-section .month-selector {
+      text-align: left;
+      padding-left: 10px; }
+    .date-range-body .date-section .calender-section {
+      padding: 10px;
+      margin-top: 10px;
+      height: 224px; }
+    .date-range-body .date-section .date-item, .date-range-body .date-section .date-weekday {
+      display: inline-block;
+      text-align: center;
+      cursor: pointer;
+      border-radius: 6px;
+      font-size: 12px;
+      padding: 3px;
+      background-clip: content-box;
+      width: 31px;
+      height: 26px;
+      line-height: 28px;
+      padding: 3px 2px; }
+    .date-range-body .date-section .current-day {
+      background-color: #868c93;
+      color: #000000;
+      position: relative; }
+    .date-range-body .date-section .date-item:hover {
+      background-color: #b4c0cb;
+      color: #000000; }
+    .date-range-body .date-section .selected {
+      background-color: #b4c0cb;
+      color: #000000; }
+    .date-range-body .date-section .not-current-month {
+      color: rgba(180, 192, 203, 0.3); }
+    .date-range-body .date-section .current-day:after {
+      content: ' ';
+      position: absolute;
+      right: 2px;
+      bottom: 5px;
+      border-top: 4px solid #000;
+      border-left: 4px solid transparent;
+      border-right: 4px solid transparent;
+      transform: rotate(315deg); }
+    .date-range-body .date-section .date-item.disable, .date-range-body .date-section .date-item.disable:hover {
+      cursor: not-allowed;
+      background-color: inherit;
+      color: #b4c0cb; }
+    .date-range-body .date-section .month-item {
+      display: inline-block;
+      text-align: center;
+      cursor: pointer;
+      border-radius: 6px;
+      font-size: 12px;
+      padding: 3px;
+      background-clip: content-box;
+      width: 55px;
+      height: 50px;
+      line-height: 50px; }
+    .date-range-body .date-section .month-item:hover {
+      background-color: #b4c0cb;
+      color: #000000; }
+  .date-range-body .bg-for-close {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 1023; }
