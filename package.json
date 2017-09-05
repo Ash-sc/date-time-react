@@ -4,6 +4,7 @@
   "description": "react date time picker",
   "main": "index.js",
   "scripts": {
+    "dev": "node webpack.config.js",
     "build": "./node_modules/.bin/rimraf lib && gulp sass && ./node_modules/.bin/babel src --copy-files --source-maps --extensions .es6,.es,.jsx --out-dir lib"
   },
   "repository": {

@@ -13,12 +13,12 @@ export default class DateRange extends React.Component {
 
     this.state = {
       format: props.format || 'x', // 日期格式
-      date: props.date || undefined,
+      date: moment(props.date || undefined),
       minDate: CommonFn.ymd(props.minDate || '1900-01-01'),
       maxDate: CommonFn.ymd(props.maxDate || '2200-01-01'),
       yearMonth: CommonFn.ym(props.date), // 默认开始月份
       showCalendar: false, // 是否显示日历
-      placeholder: props.placeholder || 'YYYY-MM-DD',
+      placeholder: props.placeholder || `YYYY-MM-DD${props.needTime ? ' HH:mm' : ''}`,
       lang: props.lang === 'zh-cn' ? 'zh-cn' : 'en',
       needTime: props.needTime || false,
     };
@@ -52,13 +52,17 @@ export default class DateRange extends React.Component {
         year: parseInt(yearMonthDayArr[0], 10),
         month: parseInt(yearMonthDayArr[1], 10) - 1,
         date: parseInt(yearMonthDayArr[2], 10),
-      }).format(needTime ? 'YYYY-MM-DD HH:mm' : 'YYYY-MM-DD'),
-    }, this.dateCallback);
+      }),
+    }, () => {
+      !needTime && this.dateCallback();
+    });
   }
 
   // 点击日历时间，选择时间
-  selectTime(val) {
-    console.log(val, 3333);
+  selectTime(date) {
+    this.setState({
+      date,
+    });
   }
 
   // 回调组件外部方法，传出修改
@@ -66,6 +70,9 @@ export default class DateRange extends React.Component {
     const { changeDate, format } = this.props;
     const { date } = this.state;
     changeDate && changeDate(moment(date).set('millisecond', 0).format(format));
+    this.setState({
+      showCalendar: false,
+    });
   }
 
   render() {
@@ -77,7 +84,10 @@ export default class DateRange extends React.Component {
       showCalendar,
       placeholder,
       lang,
+      needTime
     } = this.state;
+
+    const formatDate = this.props.date ? moment(this.props.date).format(needTime ? 'YYYY-MM-DD HH:mm' : 'YYYY-MM-DD') : '';
 
     return (
       <div className="date-range-body">
@@ -85,7 +95,7 @@ export default class DateRange extends React.Component {
           className="input-section"
           onClick={() => this.dateSectionDisplay('show')}
         >
-          <input type="text" className="time-input" value={date} placeholder={placeholder} />
+          <input type="text" className="time-input" value={formatDate} placeholder={placeholder} />
         </div>
 
         <div
@@ -94,7 +104,7 @@ export default class DateRange extends React.Component {
           <CalendarSelect
             className="date-select-section"
             calendarMonth={yearMonth}
-            date={date}
+            date={date.format('YYYY-MM-DD')}
             minDate={minDate}
             maxDate={maxDate}
             lang={lang}
@@ -104,13 +114,15 @@ export default class DateRange extends React.Component {
           />
         </div>
         <div
-          className={`time-section ${showCalendar && 'time-section-show'}`}
+          className={`time-section ${showCalendar && needTime ? ' time-section-show' : ''}`}
         >
           <TimeSelect
             date={date}
             minDate={minDate}
             maxDate={maxDate}
             selectTime={item => this.selectTime(item)}
+            lang={lang}
+            onOk={() => this.dateCallback()}
           />
         </div>
         {showCalendar &&

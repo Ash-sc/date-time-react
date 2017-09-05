@@ -23,7 +23,7 @@ render() {
 ```
 
 ## Demo:
-
+![demo](https://raw.githubusercontent.com/Ash-sc/date-time-react/dev/example/demo.gif)
 
 ## API Reference
 
