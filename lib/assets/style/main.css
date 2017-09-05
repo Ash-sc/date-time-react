@@ -187,10 +187,10 @@
     bottom: 20px; }
   .date-range-body .confirm-btn {
     position: absolute;
-    right: 40px;
-    bottom: 15px;
+    right: 28px;
+    bottom: 20px;
     height: 24px;
-    width: 100px;
+    width: 124px;
     font-size: 12px;
     background-color: #373d49;
     color: #b4c0cb;
