@@ -13,10 +13,12 @@ import DateTime from 'date-time-react';
 render() {
   return (
     <DateTime
-      startDate={this.state.startDate}
-      endDate={this.state.endDate}
-      changeStartDate={date => this.setState({ startDate: date })}
-      changeEndDate={date => this.setState({ endDate: date })}
+      lang="zh-cn"
+      placeholder="年-月-日 时:分"
+      format="YYYY-MM-DD HH:mm"
+      date={this.state.timeOne}
+      changeDate={date => this.setState({ timeOne: date })}
+      needTime
     />
   );
 }
