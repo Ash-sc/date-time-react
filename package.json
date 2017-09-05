@@ -1,0 +1,55 @@
+{
+  "name": "date-time-react",
+  "version": "1.0.0",
+  "description": "react date time picker",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node webpack.config.js",
+    "build": "./node_modules/.bin/rimraf lib && gulp sass && ./node_modules/.bin/babel src --copy-files --source-maps --extensions .es6,.es,.jsx --out-dir lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ash-sc/date-time-react.git"
+  },
+  "keywords": [
+    "react",
+    "date-time"
+  ],
+  "author": "Ash",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ash-sc/date-time-react/issues"
+  },
+  "homepage": "https://github.com/Ash-sc/date-time-react#readme",
+  "dependencies": {
+    "font-awesome": "^4.7.0",
+    "moment": "^2.18.1",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1"
+  },
+  "devDependencies-for-dev": {
+    "babel": "^6.23.0",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^6.2.5",
+    "babel-polyfill": "^6.16.0",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.16.0",
+    "css-loader": "^0.28.7",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.9.0",
+    "gulp": "^3.9.1",
+    "gulp-sass": "^3.1.0",
+    "jsx-loader": "^0.13.2",
+    "lodash": "^4.17.4",
+    "moment": "^2.18.1",
+    "node-sass": "^4.5.3",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "sass-loader": "^4.1.1",
+    "style-loader": "^0.13.2",
+    "url-loader": "^0.5.8",
+    "webpack": "^1.15.0"
+  }
+}
